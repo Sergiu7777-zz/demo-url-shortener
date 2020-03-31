@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-search data-mobile-support>
+<head>
+    <title>Short it!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div>
+    <div class="container">
+        <form action="/index" method="post">
+            <p>Your url: <input name="longUrl" /></p>
+            <p>
+                <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+            </p>
+        </form>
+        <h3>URL submitted:</h3>
+            <p th:text="${urlDomain.getId()}" ></p>
+            <p th:text="${urlDomain.displayShortUrl()}" ></p>
+            <p th:text="${urlDomain.getLongUrl()}" ></p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2020 Serghei Morari</p>
+    </div>
+</div>
+</body>
+</html>

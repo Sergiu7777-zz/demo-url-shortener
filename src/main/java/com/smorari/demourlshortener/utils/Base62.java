@@ -1,8 +1,6 @@
-package com.smorari.demourlshortener.util;
+package com.smorari.demourlshortener.utils;
 
 import lombok.Data;
-
-import java.util.stream.Stream;
 
 @Data
 public class Base62 {
