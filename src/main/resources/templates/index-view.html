@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="../static/css/styles.css" th:href="@{../css/styles.css}" rel="stylesheet"/>
+    <script src="../static/js/main.js" th:src="@{../js/main.js}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
@@ -24,16 +25,17 @@
                 <div class="row">
                     <div class="col my-auto">
                         <div class="text-center mx-auto w-80">
-                            <input name="longUrl" class="form-control" required="required"/>
+                            <input name="longUrl" class="form-control" required="required" placeholder="Enter your url here" onkeyup="toggleButton(this, 'js-submit-btn')" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="text-center mx-auto w-50 p-3 text-center">
-                            <input type="submit" value="Submit" class="btn btn-success btn-lg"/><input type="reset"
-                                                                                                             value="Reset"
-                                                                                                             class="btn btn-warning btn-lg"/>
+                            <input id="js-submit-btn" type="submit" value="Submit"
+                                   class="btn btn-success btn-lg"
+                                   disabled="disabled" /><input type="reset" value="Reset"
+                                                                class="btn btn-warning btn-lg" onclick="resetAllFields()"/>
                         </div>
                     </div>
                 </div>
@@ -45,8 +47,12 @@
         <div class="col">
             <div class="text-center mx-auto w-50 p-3 text-center">
             <a th:href="${urlDomain.getShortUrl()}" target="_blank">
-                <span th:text="${urlDomain.displayShortUrl()}">https://loading.io/animation</span>
-            </a><button class="btn btn-info btn-squared btn-lg">Copy</button>
+                <span id="js-url-input" th:text="${urlDomain.displayShortUrl()}"></span>
+            </a><div>
+                <button id="js-copy-btn" class="btn btn-info btn-squared btn-lg" onclick="copyLink()" onmouseout="outFunction()">
+                    <span class="tooltip-text" id="myTooltip">Copy to clipboard</span>
+                </button>
+            </div>
             </div>
         </div>
     </div>
