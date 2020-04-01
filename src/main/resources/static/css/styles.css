@@ -1,0 +1,27 @@
+body {
+    background-color: #e9ecef;
+}
+
+div {
+ /*border: 1px solid rebeccapurple;*/
+}
+.footer {
+    height: 50px;
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.copyright-text {
+    margin: 12px;
+}
+
+.btn {
+    margin: 10px;
+    padding: 5px 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .btn {
+        width: 100%;
+    }
+}
