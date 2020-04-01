@@ -24,5 +24,3 @@ function toggleButton(ref,bttnID){
     document.getElementById(bttnID).disabled= ((ref.value === ref.defaultValue));
     // document.getElementById("js-copy-btn").disabled= ((ref.value === ref.defaultValue));
 }
-
-document.getElementById("js-url-input").addEventListener("click", displayDate);
